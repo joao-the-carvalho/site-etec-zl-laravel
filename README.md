@@ -30,17 +30,6 @@ Projeto escolar desenvolvido com Laravel e Breeze, simulando o site da ETEC Zona
 
 ---
 
-## Perfis de Usuário
-
-| Perfil | Registro | Login | CRUD Cursos/Eventos | Gerenciar Usuários |
-|---|---|---|---|---|
-| Aluno | ❌ (cadastrado pelo admin) | ✅ | ❌ | ❌ |
-| Professor | ❌ (cadastrado pelo admin) | ✅ | ✅ | ✅ |
-
-> O registro público está desativado. Apenas administradores (professores) cadastram novos usuários.
-
----
-
 ## Instalação
 
 ### Pré-requisitos
@@ -54,8 +43,8 @@ Projeto escolar desenvolvido com Laravel e Breeze, simulando o site da ETEC Zona
 
 **1. Clonar o repositório**
 ```bash
-git clone https://github.com/seu-usuario/site-etec-zl.git
-cd site-etec-zl
+git clone https://github.com/joao-the-carvalho/site-etec-zl-laravel.git ou "Code > Download ZIP > Após download, extrair em uma pasta nova"
+cd site-etec-zl-laravel
 ```
 
 **2. Instalar dependências PHP**
@@ -65,12 +54,12 @@ composer install
 
 **3. Instalar dependências Node**
 ```bash
-npm install
+npm install (recomendado usar o git bash dentro do VS Code para baixar)
 ```
 
 **4. Configurar o ambiente**
 ```bash
-cp .env.example .env
+cp .env.example .env (serve pra criar os arquivos não existentes do .env)
 php artisan key:generate
 ```
 
@@ -78,7 +67,7 @@ Edite o `.env` com as credenciais do banco:
 ```env
 DB_DATABASE=site_etec_zl
 DB_USERNAME=root
-DB_PASSWORD=sua_senha
+DB_PASSWORD=(caso tenha senha, adicione aqui, caso não, deixe em branco)
 ```
 
 **5. Rodar as migrations**

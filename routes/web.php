@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminUserController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 
-// Cursos: CRUD restrito a admin (deve vir ANTES do {curso})
+// Rotas dos cursos: CRUD restrito à apenas Administradores
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/cursos/create', [CursoController::class, 'create'])->name('cursos.create');
     Route::post('/cursos', [CursoController::class, 'store'])->name('cursos.store');
@@ -23,11 +23,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::put('/admin/usuarios/{user}', [AdminUserController::class, 'update'])->name('admin.usuarios.update');
 });
 
-// Cursos: listagem e show público (depois do grupo admin)
+// Cursos: Para os usuários comuns poderem ver
 Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index');
 Route::get('/cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
 
-// Eventos: CRUD restrito a admin (deve vir ANTES do {evento})
+// Eventos: CRUD restrito a Admins
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/eventos/create', [EventoController::class, 'create'])->name('eventos.create');
     Route::post('/eventos', [EventoController::class, 'store'])->name('eventos.store');
@@ -36,8 +36,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/eventos/{evento}', [EventoController::class, 'destroy'])->name('eventos.destroy');
 });
 
-// Eventos: listagem e show público (depois do grupo admin)
+// Eventos: Para o usuários comuns poderem ver
 Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index');
 Route::get('/eventos/{evento}', [EventoController::class, 'show'])->name('eventos.show');
+
+// rota fallback, caso o usuário entre em uma URL inválida
+Route::fallback(function(){
+    return view('erro');
+})->name('fallback');
 
 require __DIR__.'/auth.php';
