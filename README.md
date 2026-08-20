@@ -217,4 +217,14 @@ eventos
 ## Vídeo
 - https://youtu.be/DmkzMcYH3UU
 
+---
+## ORM:
+- users (1:1): 1 curso pra 1 aluno, 1 curso pra 1 professor, N admins pra 1 sistema.
+- cursos (1:N): 1 curso pra N alunos, 1 curso pra N professores.
+- eventos (N:N): N eventos pra N lugares.
+### Explicação:
+- https://youtu.be/DLWtP7eR3hM
+
+
+---
 Desenvolvido por João Victor de Paiva Carvalho — ETEC Zona Leste
